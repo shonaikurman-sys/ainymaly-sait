@@ -1,57 +1,46 @@
 <title>Айнымалылар — 4-сынып</title>
 <style>
   :root{
-    --bg:#eef0f4;
-    --bg-2:#e3e7ee;
-    --surface:#ffffff;
-    --surface-2:#f1e8d2;
-    --crate:#5c4326;
-    --crate-tape:#c9974f;
-    --ink:#2b2118;
-    --ink-soft:#71624a;
-    --kraft:#b97a3d;
-    --kraft-ink:#7a4e1f;
-    --stamp:#d6483f;
-    --teal:#1f8a82;
+    --bg:#eaf3ee;
+    --bg-2:#e3f0ee;
+    --cork:#b58a56;
+    --cork-dot:rgba(60,38,10,.14);
+    --cork-dot-2:rgba(255,255,255,.10);
+    --note:#fff8e6;
+    --note-2:#fdeec0;
+    --ink:#223021;
+    --ink-soft:#5b6b56;
+    --moss:#3f8a4c;
+    --moss-ink:#2a5c33;
+    --sunset:#e67e3e;
+    --sky:#3e93b0;
+    --pin:#c23b3b;
     --green:#2fae83;
     --green-bg:#e3f6ee;
     --red:#e5554a;
     --red-bg:#fdeceb;
-    --ring:#b97a3d;
-    --counter-bg:#211a12;
-    --counter-fg:#ffd897;
-    --shadow:0 18px 40px -20px rgba(43,33,24,.4);
+    --ring:#3f8a4c;
+    --cham-grey:#9aa0a6;
+    --shadow:0 18px 40px -20px rgba(34,48,33,.4);
   }
   :root[data-theme="dark"]{
-    --bg:#12151b;
-    --bg-2:#171b23;
-    --surface:#1c212b;
-    --surface-2:#2a2115;
-    --crate:#0d0a06;
-    --crate-tape:#8a6738;
-    --ink:#f1e9db;
-    --ink-soft:#b7a88c;
-    --kraft:#d69a55;
-    --kraft-ink:#ffcf8f;
-    --stamp:#ff8378;
-    --teal:#4fd0c6;
-    --green:#3fd79a;
-    --green-bg:#0f2a22;
-    --red:#ff7a6e;
-    --red-bg:#331817;
-    --ring:#d69a55;
-    --counter-bg:#000000;
-    --counter-fg:#ffd897;
+    --bg:#0e1712; --bg-2:#0c1613;
+    --cork:#4a3620; --cork-dot:rgba(0,0,0,.28); --cork-dot-2:rgba(255,255,255,.06);
+    --note:#241f14; --note-2:#2d2717;
+    --ink:#eaf0e6; --ink-soft:#a7b5a1;
+    --moss:#5cbf6c; --moss-ink:#8fe39d;
+    --sunset:#f2965a; --sky:#5fb6d1; --pin:#e35b5b;
+    --green:#3fd79a; --green-bg:#12281f; --red:#ff7a6e; --red-bg:#331817;
+    --ring:#5cbf6c; --cham-grey:#5b645d;
     --shadow:0 18px 44px -18px rgba(0,0,0,.7);
   }
   @media (prefers-color-scheme: dark){
     :root:not([data-theme="light"]){
-      --bg:#12151b; --bg-2:#171b23; --surface:#1c212b; --surface-2:#2a2115;
-      --crate:#0d0a06; --crate-tape:#8a6738; --ink:#f1e9db; --ink-soft:#b7a88c;
-      --kraft:#d69a55; --kraft-ink:#ffcf8f; --stamp:#ff8378; --teal:#4fd0c6;
-      --green:#3fd79a; --green-bg:#0f2a22; --red:#ff7a6e; --red-bg:#331817;
-      --ring:#d69a55; --counter-bg:#000000; --counter-fg:#ffd897;
-      --shadow:0 18px 44px -18px rgba(0,0,0,.7);
+      --bg:#0e1712; --bg-2:#0c1613; --cork:#4a3620; --cork-dot:rgba(0,0,0,.28); --cork-dot-2:rgba(255,255,255,.06);
+      --note:#241f14; --note-2:#2d2717; --ink:#eaf0e6; --ink-soft:#a7b5a1;
+      --moss:#5cbf6c; --moss-ink:#8fe39d; --sunset:#f2965a; --sky:#5fb6d1; --pin:#e35b5b;
+      --green:#3fd79a; --green-bg:#12281f; --red:#ff7a6e; --red-bg:#331817;
+      --ring:#5cbf6c; --cham-grey:#5b645d; --shadow:0 18px 44px -18px rgba(0,0,0,.7);
     }
   }
 
@@ -59,188 +48,177 @@
   html,body{margin:0;padding:0;}
   body{
     min-height:100vh;
-    background:
-      radial-gradient(55vw 55vw at 8% 6%, color-mix(in srgb, var(--kraft) 15%, transparent), transparent 60%),
-      radial-gradient(48vw 48vw at 94% 92%, color-mix(in srgb, var(--teal) 12%, transparent), transparent 60%),
-      linear-gradient(180deg, var(--bg), var(--bg-2));
+    background:linear-gradient(160deg, var(--bg), var(--bg-2));
     color:var(--ink);
     font-family:"Segoe UI","Helvetica Neue",Verdana,Tahoma,sans-serif;
-    padding:28px 16px 64px;
+    padding:26px 14px 64px;
     overflow-x:hidden;
   }
-  .wrap{max-width:880px;margin:0 auto;}
+  .wrap{max-width:900px;margin:0 auto;}
 
-  /* ---------- crate frame ---------- */
-  .crate{
-    background:var(--crate);
-    border-radius:22px;
-    padding:0 0 14px;
+  .board{
+    background-color:var(--cork);
+    background-image:
+      radial-gradient(circle at 15% 25%, var(--cork-dot) 0 3px, transparent 4px),
+      radial-gradient(circle at 55% 65%, var(--cork-dot) 0 3px, transparent 4px),
+      radial-gradient(circle at 80% 15%, var(--cork-dot-2) 0 3px, transparent 4px),
+      radial-gradient(circle at 35% 85%, var(--cork-dot) 0 2px, transparent 3px),
+      radial-gradient(circle at 90% 55%, var(--cork-dot-2) 0 2px, transparent 3px);
+    background-size:46px 46px, 60px 60px, 38px 38px, 52px 52px, 33px 33px;
+    border-radius:20px;
+    padding:30px 18px 26px;
     box-shadow:var(--shadow);
     position:relative;
-    overflow:hidden;
   }
-  .tape{
-    height:26px;
-    background:repeating-linear-gradient(
-      45deg,
-      var(--crate-tape) 0 14px,
-      color-mix(in srgb, var(--crate-tape) 70%, black) 14px 28px
-    );
-    display:flex;align-items:center;justify-content:center;
+  @media (min-width:560px){ .board{padding:36px 30px 30px;} }
+
+  .pin{
+    position:absolute;left:50%;top:-9px;transform:translateX(-50%);
+    width:16px;height:16px;border-radius:50%;
+    background:radial-gradient(circle at 35% 30%, #ff8a8a, var(--pin) 70%);
+    box-shadow:0 3px 4px rgba(0,0,0,.35);
+  }
+
+  /* ---------- header note ---------- */
+  .headnote{
+    background:var(--note);
+    border-radius:6px;
+    padding:18px 18px 16px;
+    transform:rotate(-1deg);
+    box-shadow:0 10px 18px -8px rgba(0,0,0,.35);
+    display:flex;gap:16px;align-items:flex-start;
     position:relative;
+    margin-bottom:22px;
   }
-  .tape__label{
-    background:var(--surface);color:var(--kraft-ink);
-    font-size:.68rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
-    padding:2px 12px;border-radius:99px;box-shadow:0 2px 6px rgba(0,0,0,.25);
-  }
-  .bolt{
-    position:absolute;width:9px;height:9px;border-radius:50%;
-    background:color-mix(in srgb, var(--crate-tape) 60%, black);
-    box-shadow:inset 0 1px 1px rgba(255,255,255,.25);
-  }
-  .bolt--tl{top:10px;left:10px;} .bolt--tr{top:10px;right:10px;}
-  .bolt--bl{bottom:10px;left:10px;} .bolt--br{bottom:10px;right:10px;}
-
-  .screen{
-    background:var(--surface);
-    margin:10px 10px 0;
-    border-radius:18px;
-    padding:22px 20px 26px;
-  }
-  @media (min-width:560px){ .screen{padding:30px 34px 34px;} }
-
-  /* ---------- HUD header ---------- */
-  .hud{
-    display:flex;align-items:flex-start;gap:16px;
-    padding-bottom:18px;
-    border-bottom:1px dashed color-mix(in srgb, var(--ink) 16%, transparent);
-  }
-  .mascot{flex:none;width:64px;height:70px;filter:drop-shadow(0 6px 10px rgba(0,0,0,.14));}
-  .eyebrow{
-    margin:0 0 4px;font-size:.72rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;
-    color:var(--kraft-ink);
-  }
-  h1{
-    margin:0 0 8px;font-size:clamp(1.35rem,4.2vw,1.85rem);font-weight:800;line-height:1.15;
-    text-wrap:balance;color:var(--ink);
-  }
-  .objective{margin:0;font-size:.87rem;line-height:1.5;color:var(--ink-soft);max-width:56ch;}
+  .mascot{flex:none;width:76px;height:70px;}
+  .eyebrow{margin:0 0 4px;font-size:.7rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--moss-ink);}
+  h1{margin:0 0 8px;font-size:clamp(1.3rem,4vw,1.8rem);font-weight:800;line-height:1.15;text-wrap:balance;color:var(--ink);}
+  .objective{margin:0;font-size:.86rem;line-height:1.5;color:var(--ink-soft);max-width:54ch;}
   .objective__code{
-    display:inline-block;background:var(--surface-2);color:var(--kraft-ink);
-    border:1px solid color-mix(in srgb, var(--kraft) 40%, transparent);
+    display:inline-block;background:var(--note-2);color:var(--moss-ink);
+    border:1px solid color-mix(in srgb, var(--moss) 40%, transparent);
     border-radius:8px;padding:1px 7px;font-weight:800;font-size:.78rem;margin-right:6px;
     font-variant-numeric:tabular-nums;
   }
 
-  /* ---------- score counter ---------- */
-  .scorebar{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:18px 0 16px;}
-  .counter{
-    flex:none;background:var(--counter-bg);border-radius:10px;padding:8px 14px;
-    font-family:"Consolas","Courier New",monospace;
-    font-size:1.1rem;font-weight:700;color:var(--counter-fg);
-    font-variant-numeric:tabular-nums;letter-spacing:.05em;
-    box-shadow:inset 0 2px 6px rgba(0,0,0,.5);
-    transition:transform .25s cubic-bezier(.34,1.56,.64,1);
+  /* ---------- score shelf ---------- */
+  .shelf{
+    display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+    background:rgba(0,0,0,.14);
+    border-radius:14px;padding:10px 14px;margin-bottom:20px;
   }
-  .counter.bump{transform:scale(1.08);}
-  .scorebar__caption{font-size:.72rem;color:var(--ink-soft);font-weight:700;flex:1 1 140px;letter-spacing:.04em;text-transform:uppercase;}
-  .btn{
-    font:inherit;font-weight:700;font-size:.82rem;cursor:pointer;
-    border-radius:99px;padding:8px 16px;border:1px solid transparent;
-    transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
+  :root[data-theme="dark"] .shelf, .shelf{background:rgba(0,0,0,.16);}
+  .beads{display:flex;flex-wrap:wrap;gap:4px;flex:1 1 200px;}
+  .bead{
+    width:12px;height:12px;border-radius:4px;background:var(--cham-grey);
+    transition:background .25s ease, transform .2s ease;
   }
-  .btn:active{transform:scale(.96);}
-  .btn--ghost{background:var(--surface-2);color:var(--ink-soft);border-color:color-mix(in srgb, var(--ink) 14%, transparent);}
-  .btn--ghost:hover{color:var(--red);border-color:color-mix(in srgb, var(--red) 45%, transparent);}
+  .bead.ok{background:var(--green);}
+  .bead.bad{background:var(--red);}
+  .shelf__label{font-size:.7rem;font-weight:800;color:#fff;letter-spacing:.04em;text-transform:uppercase;flex:none;}
+  .eraser{
+    flex:none;font:inherit;font-weight:700;font-size:.78rem;cursor:pointer;
+    background:var(--note);color:var(--ink);border:none;border-radius:8px;
+    padding:7px 12px;box-shadow:0 3px 0 rgba(0,0,0,.3);transition:transform .1s;
+  }
+  .eraser:active{transform:translateY(2px);box-shadow:0 1px 0 rgba(0,0,0,.3);}
 
-  /* ---------- tabs ---------- */
-  .tabs{display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap;}
+  /* ---------- folder tabs ---------- */
+  .tabs{display:flex;gap:6px;margin-bottom:0;padding-left:8px;}
   .tab{
-    flex:1 1 200px;display:flex;align-items:center;justify-content:center;gap:8px;
-    font:inherit;font-weight:800;font-size:.88rem;cursor:pointer;
-    padding:12px 14px;border-radius:14px;border:2px solid transparent;
-    background:var(--surface-2);color:var(--ink-soft);transition:all .18s ease;
+    font:inherit;font-weight:800;font-size:.84rem;cursor:pointer;
+    padding:10px 18px 8px;border:none;
+    clip-path:polygon(8% 0,92% 0,100% 100%,0% 100%);
+    background:color-mix(in srgb, var(--note) 55%, transparent);
+    color:color-mix(in srgb, var(--ink) 55%, transparent);
+    transform:translateY(4px);
+    transition:all .15s ease;
   }
-  .tab__count{
-    font-size:.72rem;font-weight:800;background:color-mix(in srgb, var(--ink) 10%, transparent);
-    color:var(--ink-soft);border-radius:99px;padding:1px 8px;font-variant-numeric:tabular-nums;
-  }
-  .tab.active{background:color-mix(in srgb, var(--kraft) 20%, var(--surface));border-color:var(--kraft);color:var(--kraft-ink);}
-  .tab.active .tab__count{background:var(--kraft);color:#2b1d0c;}
-  .tab:focus-visible, .btn:focus-visible, .opt:focus-visible, .tool:focus-visible, .pager button:focus-visible{
+  .tab.active{background:var(--note);color:var(--ink);transform:translateY(0);}
+  .tab:focus-visible, .eraser:focus-visible, .optnote:focus-visible, .switch:focus-visible, .flag:focus-visible{
     outline:3px solid var(--ring);outline-offset:2px;
   }
 
-  .panel{display:none;}
+  .panel{display:none;background:var(--note);border-radius:4px 14px 14px 14px;padding:18px 16px 20px;}
   .panel.active{display:block;}
-  .cards{display:flex;flex-direction:column;gap:16px;}
+  @media (min-width:560px){ .panel{padding:22px 22px 24px;} }
 
-  /* ---------- tag-style card ---------- */
+  .cards{display:flex;flex-direction:column;gap:22px;}
+
+  /* ---------- pinned sticky card ---------- */
   .card{
-    background:var(--surface-2);
-    border:1px dashed color-mix(in srgb, var(--kraft-ink) 45%, transparent);
-    border-radius:4px 14px 14px 4px;
-    padding:16px 16px 14px 20px;
+    background:var(--note-2);
+    border-radius:8px;
+    padding:14px 14px 12px;
     position:relative;
+    box-shadow:0 8px 14px -8px rgba(0,0,0,.3);
   }
-  .card::before{
-    content:"";position:absolute;left:-1px;top:14px;width:10px;height:10px;
-    background:var(--surface);border:1px dashed color-mix(in srgb, var(--kraft-ink) 45%, transparent);
-    border-radius:50%;
+  .card__pin{
+    position:absolute;left:50%;top:-7px;transform:translateX(-50%);
+    width:12px;height:12px;border-radius:50%;
+    background:radial-gradient(circle at 35% 30%, #ffe08a, var(--sunset) 70%);
+    box-shadow:0 2px 3px rgba(0,0,0,.35);
   }
-  .card__top{display:flex;gap:10px;margin-bottom:12px;}
+  .card__top{display:flex;gap:10px;margin-bottom:10px;}
   .card__num{
-    flex:none;width:28px;height:28px;border-radius:6px;
-    background:var(--stamp);color:#fff;font-weight:800;font-size:.85rem;
+    flex:none;width:24px;height:24px;border-radius:50%;
+    background:var(--sky);color:#fff;font-weight:800;font-size:.78rem;
     display:flex;align-items:center;justify-content:center;font-variant-numeric:tabular-nums;
-    transform:rotate(-4deg);
   }
-  .card__q{margin:2px 0 0;font-weight:700;font-size:1rem;line-height:1.4;}
+  .card__q{margin:1px 0 0;font-weight:700;font-size:.98rem;line-height:1.4;}
 
-  .card__options{display:grid;gap:8px;grid-template-columns:1fr;}
+  .card__options{display:grid;gap:8px;grid-template-columns:1fr;margin-top:2px;}
   @media (min-width:520px){ .card__options{grid-template-columns:1fr 1fr;} }
-  .opt{
-    text-align:left;font:inherit;font-size:.88rem;font-weight:600;cursor:pointer;
-    background:var(--surface);color:var(--ink);
-    border:2px solid color-mix(in srgb, var(--ink) 12%, transparent);
-    border-radius:10px;padding:9px 12px;line-height:1.35;
-    display:flex;gap:8px;align-items:flex-start;
+  .optnote{
+    text-align:left;font:inherit;font-size:.86rem;font-weight:600;cursor:pointer;
+    background:var(--note);color:var(--ink);
+    border:2px dashed color-mix(in srgb, var(--ink) 25%, transparent);
+    border-radius:9px 11px 8px 12px;
+    padding:8px 10px;line-height:1.32;
+    display:flex;gap:7px;align-items:flex-start;
     transition:border-color .15s ease, background .15s ease, transform .1s ease;
   }
-  .opt__tag{flex:none;font-weight:800;color:var(--kraft-ink);}
-  .opt:hover{border-color:var(--kraft);}
-  .opt.tf{justify-content:center;text-align:center;font-weight:800;font-size:.95rem;}
-  .opt.is-selected{border-color:var(--ink);transform:translateY(-1px);}
-  .opt.is-correct{background:var(--green-bg);border-color:var(--green);color:var(--green);}
-  .opt.is-wrong{background:var(--red-bg);border-color:var(--red);color:var(--red);}
+  .optnote__tag{flex:none;font-weight:800;color:var(--sky);}
+  .optnote:hover{border-color:var(--moss);}
+  .optnote.tf{justify-content:center;text-align:center;font-weight:800;font-size:.92rem;}
+  .optnote.is-selected{border-style:solid;border-color:var(--ink);}
+  .optnote.is-correct{background:var(--green-bg);border-color:var(--green);color:var(--green);}
+  .optnote.is-wrong{background:var(--red-bg);border-color:var(--red);color:var(--red);}
 
-  .card__tools{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap;}
-  .tool{
-    font:inherit;font-size:.78rem;font-weight:800;cursor:pointer;
-    border-radius:99px;padding:6px 13px;border:2px solid transparent;
-    background:var(--surface);color:var(--ink-soft);
-    border-color:color-mix(in srgb, var(--ink) 14%, transparent);
-    transition:all .15s ease;
+  /* ---------- toggle switches ---------- */
+  .card__switches{display:flex;gap:16px;margin-top:12px;flex-wrap:wrap;}
+  .switch{display:inline-flex;align-items:center;gap:7px;cursor:pointer;background:none;border:none;font:inherit;padding:2px;}
+  .switch__label{font-size:.74rem;font-weight:800;color:var(--ink-soft);}
+  .switch__track{
+    width:32px;height:18px;border-radius:99px;position:relative;flex:none;
+    background:color-mix(in srgb, var(--ink) 18%, transparent);
+    transition:background .2s ease;
   }
-  .tool[data-type="hint"].is-open{background:#ffc145;border-color:#ffc145;color:#5a4200;}
-  .tool[data-type="answer"].is-open{background:var(--teal);border-color:var(--teal);color:#fff;}
-
-  .card__reveal{margin-top:10px;border-radius:10px;padding:10px 12px;font-size:.85rem;line-height:1.5;}
-  .card__reveal.hint{background:color-mix(in srgb, #ffc145 22%, var(--surface));color:var(--ink);}
-  .card__reveal.answer{background:color-mix(in srgb, var(--teal) 14%, var(--surface));color:var(--ink);}
-
-  .pager{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:20px;}
-  .pager button{
-    font:inherit;font-weight:800;font-size:.82rem;cursor:pointer;
-    background:var(--surface-2);color:var(--ink);
-    border:1px solid color-mix(in srgb, var(--ink) 14%, transparent);
-    border-radius:99px;padding:8px 16px;
+  .switch__thumb{
+    position:absolute;top:2px;left:2px;width:14px;height:14px;border-radius:50%;
+    background:var(--note);box-shadow:0 1px 2px rgba(0,0,0,.4);
+    transition:transform .2s ease;
   }
-  .pager button:disabled{opacity:.35;cursor:default;}
-  .pager__dots{display:flex;gap:6px;}
-  .pager__dot{width:8px;height:8px;border-radius:99px;background:color-mix(in srgb, var(--ink) 22%, transparent);}
-  .pager__dot.active{background:var(--kraft);width:20px;}
+  .switch.hint.is-on .switch__track{background:var(--sunset);}
+  .switch.answer.is-on .switch__track{background:var(--sky);}
+  .switch.is-on .switch__thumb{transform:translateX(14px);}
+  .switch.is-on .switch__label{color:var(--ink);}
+
+  .card__reveal{margin-top:10px;border-radius:9px;padding:9px 11px;font-size:.84rem;line-height:1.5;}
+  .card__reveal.hint{background:color-mix(in srgb, var(--sunset) 20%, var(--note));color:var(--ink);}
+  .card__reveal.answer{background:color-mix(in srgb, var(--sky) 16%, var(--note));color:var(--ink);}
+
+  /* ---------- flag pager ---------- */
+  .pager{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:22px;flex-wrap:wrap;}
+  .flag{
+    font:inherit;font-weight:800;font-size:.8rem;cursor:pointer;
+    background:var(--note);color:var(--ink-soft);border:none;
+    border-radius:0 8px 8px 0;padding:7px 14px 7px 10px;
+    box-shadow:0 3px 0 rgba(0,0,0,.2);
+    transition:transform .1s, background .15s, color .15s;
+  }
+  .flag.active{background:var(--moss);color:#fff;}
+  .flag:disabled{opacity:.35;cursor:default;}
 
   @media (prefers-reduced-motion: reduce){
     *{animation-duration:.001ms !important;transition-duration:.001ms !important;}
@@ -248,62 +226,49 @@
 </style>
 
 <div class="wrap">
-  <div class="crate">
-    <span class="bolt bolt--tl"></span><span class="bolt bolt--tr"></span>
-    <span class="bolt bolt--bl"></span><span class="bolt bolt--br"></span>
-    <div class="tape"><span class="tape__label">Айнымалылар қоймасы</span></div>
-    <div class="screen">
+  <div class="board">
+    <span class="pin"></span>
 
-      <header class="hud">
-        <svg class="mascot" viewBox="0 0 64 70" aria-hidden="true">
-          <rect x="10" y="26" width="44" height="34" rx="4" fill="var(--kraft)"/>
-          <rect x="10" y="26" width="44" height="10" fill="var(--kraft-ink)"/>
-          <rect x="8" y="20" width="48" height="8" rx="2" fill="var(--stamp)"/>
-          <circle cx="24" cy="42" r="4" fill="#fff"/>
-          <circle cx="40" cy="42" r="4" fill="#fff"/>
-          <circle cx="24" cy="42" r="1.8" fill="var(--ink)"/>
-          <circle cx="40" cy="42" r="1.8" fill="var(--ink)"/>
-          <path d="M25 51 Q32 56 39 51" stroke="var(--ink)" stroke-width="2.4" fill="none" stroke-linecap="round"/>
-          <rect x="26" y="4" width="12" height="12" rx="2" fill="var(--surface)" stroke="var(--ink)" stroke-width="1.6" transform="rotate(-8 32 10)"/>
-          <text x="32" y="14" font-size="8" font-weight="800" fill="var(--teal)" text-anchor="middle" transform="rotate(-8 32 10)">x</text>
-          <line x1="30" y1="16" x2="24" y2="24" stroke="var(--ink-soft)" stroke-width="1.4"/>
-          <path d="M4 44 L10 40 L10 48 Z" fill="var(--teal)"/>
-          <path d="M60 44 L54 40 L54 48 Z" fill="var(--teal)"/>
-        </svg>
-        <div class="hud__text">
-          <p class="eyebrow">4-сынып · Цифрлық сауаттылық</p>
-          <h1>Айнымалылар</h1>
-          <p class="objective"><span class="objective__code">4.4.2.1</span>Айнымалыларды қолдану</p>
-        </div>
-      </header>
-
-      <div class="scorebar">
-        <div class="counter" id="counter">00 / 17</div>
-        <p class="scorebar__caption">Айнымалы: ұпай саны</p>
-        <button class="btn btn--ghost" id="resetBtn" type="button">↺ Ұпайды нөлдеу</button>
+    <div class="headnote">
+      <svg class="mascot" id="chamSvg" viewBox="0 0 80 70" aria-hidden="true">
+        <path d="M12 52 Q4 46 6 36 Q8 30 16 32" stroke="var(--cham-body)" stroke-width="6" fill="none" stroke-linecap="round" id="chamTail"/>
+        <ellipse cx="40" cy="46" rx="26" ry="14" fill="var(--cham-body)" id="chamBody"/>
+        <circle cx="60" cy="34" r="13" fill="var(--cham-body)" id="chamHead"/>
+        <circle cx="64" cy="28" r="5.2" fill="#fff"/>
+        <circle cx="65" cy="27" r="2.4" fill="var(--ink)"/>
+        <path d="M52 40 Q56 44 60 41" stroke="var(--ink)" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+        <rect x="22" y="56" width="4" height="10" rx="2" fill="var(--cham-body)" id="chamLeg1"/>
+        <rect x="46" y="56" width="4" height="10" rx="2" fill="var(--cham-body)" id="chamLeg2"/>
+        <ellipse cx="40" cy="46" rx="26" ry="14" fill="none" stroke="rgba(0,0,0,.12)" stroke-width="1"/>
+      </svg>
+      <div class="hud__text">
+        <p class="eyebrow">4-сынып · Цифрлық сауаттылық</p>
+        <h1>Айнымалылар</h1>
+        <p class="objective"><span class="objective__code">4.4.2.1</span>Айнымалыларды қолдану</p>
       </div>
-
-      <nav class="tabs" role="tablist">
-        <button class="tab active" id="tabBtn-mcq" data-tab="mcq" role="tab" aria-selected="true" type="button">
-          📦 1-бөлім · Сұрақтар <span class="tab__count">10</span>
-        </button>
-        <button class="tab" id="tabBtn-tf" data-tab="tf" role="tab" aria-selected="false" type="button">
-          🏷 2-бөлім · Дұрыс па, бұрыс па? <span class="tab__count">7</span>
-        </button>
-      </nav>
-
-      <main>
-        <section class="panel active" id="panel-mcq" role="tabpanel">
-          <div class="cards" id="mcqCards"></div>
-          <div class="pager" id="mcqPager"></div>
-        </section>
-        <section class="panel" id="panel-tf" role="tabpanel">
-          <div class="cards" id="tfCards"></div>
-          <div class="pager" id="tfPager"></div>
-        </section>
-      </main>
-
     </div>
+
+    <div class="shelf">
+      <span class="shelf__label">Түр-түсі</span>
+      <div class="beads" id="beads"></div>
+      <button class="eraser" id="resetBtn" type="button">🧽 Өшіру</button>
+    </div>
+
+    <nav class="tabs" role="tablist">
+      <button class="tab active" id="tabBtn-mcq" data-tab="mcq" role="tab" aria-selected="true" type="button">📝 1-бөлім</button>
+      <button class="tab" id="tabBtn-tf" data-tab="tf" role="tab" aria-selected="false" type="button">✅ 2-бөлім</button>
+    </nav>
+
+    <main>
+      <section class="panel active" id="panel-mcq" role="tabpanel">
+        <div class="cards" id="mcqCards"></div>
+        <div class="pager" id="mcqPager"></div>
+      </section>
+      <section class="panel" id="panel-tf" role="tabpanel">
+        <div class="cards" id="tfCards"></div>
+        <div class="pager" id="tfPager"></div>
+      </section>
+    </main>
   </div>
 </div>
 
@@ -319,7 +284,7 @@
       options:["Тұрақты, ешқашан өзгермейтін сан","Суреттің атауы","Мәні өзгеруі мүмкін, аты бар сақтауыш","Компьютердің бөлігі"],
       correct:2,
       hint:"«Айнымалы» сөзінің түбірі — «айналу, өзгеру».",
-      answer:"Жауабы — Б. Айнымалы — өз мәнін өзгерте алатын, аты бар сақтауыш (қорап тәрізді)."
+      answer:"Жауабы — Б. Айнымалы — өз мәнін өзгерте алатын, аты бар сақтауыш."
     },
     {
       q:"Ойында «Ұпай» деген айнымалының мәні неге өзгереді?",
@@ -394,17 +359,18 @@
     {q:"Айнымалының аты әр жолы жаңа мән бергенде өзгеруі керек.", correct:false,
      hint:"Ат бір рет қойылады ма, әлде әр жолы ауыстырыла ма?", answer:"Бұрыс. Айнымалының аты тұрақты қалады, тек мәні өзгереді."},
     {q:"Айнымалыда бір ғана мән мәңгі сақталады, оны ауыстыруға болмайды.", correct:false,
-     hint:"Қорапшадағы затты ауыстыруға бола ма?", answer:"Бұрыс. Айнымалыға жаңа мән беріп, ескісін ауыстыруға болады."},
+     hint:"Затты ауыстыруға бола ма?", answer:"Бұрыс. Айнымалыға жаңа мән беріп, ескісін ауыстыруға болады."},
     {q:"«Жас = 9» жазуында 9 саны — айнымалының мәні.", correct:true,
      hint:"Теңдік белгісінің оң жағында не тұр?", answer:"Дұрыс. 9 — «жас» айнымалысына берілген мән."},
     {q:"Компьютерлік бағдарламаларда айнымалылар қажет емес.", correct:false,
      hint:"Ұпай, өмір саны сияқты мәліметтерді сақтау үшін не керек?", answer:"Бұрыс. Айнымалылар мәліметтерді сақтау және өзгерту үшін өте қажет."},
-    {q:"Айнымалыны қораппен, ал оның мәнін қораптың ішіндегі затпен салыстыруға болады.", correct:true,
-     hint:"Жапсырмасы бар қорапты ойға елестет.", answer:"Дұрыс. Бұл — айнымалыны түсінудің қарапайым әдісі: қорап (ат) және оның ішіндегі зат (мән)."}
+    {q:"Айнымалыны хамелеонмен салыстыруға болады: аты тұрақты, ал түсі (мәні) өзгереді.", correct:true,
+     hint:"Хамелеон өз атын өзгертеді ме, әлде түсін бе?", answer:"Дұрыс. Хамелеон — өзгеретін мәні бар айнымалыны түсінудің қызықты әдісі."}
   ];
 
   var PAGE_SIZE_MCQ = 5;
   var PAGE_SIZE_TF = 4;
+  var TOTAL = mcq.length + tf.length;
 
   var state = {
     mcqSel: mcq.map(function(){return null;}),
@@ -417,26 +383,49 @@
     tfPage: 0
   };
 
-  function totalScore(){
-    var s = 0;
-    mcq.forEach(function(item, i){ if(state.mcqSel[i] === item.correct) s++; });
-    tf.forEach(function(item, i){ if(state.tfSel[i] === item.correct) s++; });
-    return s;
+  function lerp(a,b,t){ return Math.round(a + (b-a)*t); }
+  function mixColor(t){
+    var c1 = [154,160,166], c2 = [63,138,76];
+    return "rgb(" + lerp(c1[0],c2[0],t) + "," + lerp(c1[1],c2[1],t) + "," + lerp(c1[2],c2[2],t) + ")";
+  }
+
+  function itemState(i){
+    if(i < mcq.length){
+      var sel = state.mcqSel[i];
+      if(sel === null || sel === undefined) return "none";
+      return sel === mcq[i].correct ? "ok" : "bad";
+    } else {
+      var j = i - mcq.length;
+      var tsel = state.tfSel[j];
+      if(tsel === null || tsel === undefined) return "none";
+      return tsel === tf[j].correct ? "ok" : "bad";
+    }
   }
 
   function updateScore(){
-    var s = totalScore();
-    var total = mcq.length + tf.length;
-    var el = document.getElementById("counter");
-    el.textContent = (s < 10 ? "0"+s : s) + " / " + total;
-    el.classList.remove("bump");
-    void el.offsetWidth;
-    el.classList.add("bump");
+    var s = 0;
+    var beadsEl = document.getElementById("beads");
+    beadsEl.innerHTML = "";
+    for(var i=0;i<TOTAL;i++){
+      var st = itemState(i);
+      if(st === "ok") s++;
+      var b = document.createElement("span");
+      b.className = "bead" + (st === "ok" ? " ok" : st === "bad" ? " bad" : "");
+      beadsEl.appendChild(b);
+    }
+    var t = s / TOTAL;
+    var color = mixColor(t);
+    document.getElementById("chamSvg").style.setProperty("--cham-body", color);
   }
 
   function buildMcqCard(item, i){
     var card = document.createElement("article");
     card.className = "card";
+    card.style.transform = "rotate(" + (((i*37)%7)-3) + "deg)";
+
+    var pin = document.createElement("span");
+    pin.className = "card__pin";
+    card.appendChild(pin);
 
     var top = document.createElement("div");
     top.className = "card__top";
@@ -454,18 +443,18 @@
     item.options.forEach(function(text, oi){
       var b = document.createElement("button");
       b.type = "button";
-      b.className = "opt";
+      b.className = "optnote";
       var tag = document.createElement("span");
-      tag.className = "opt__tag";
+      tag.className = "optnote__tag";
       tag.textContent = LETTERS[oi] + ")";
       var label = document.createElement("span");
       label.textContent = text;
       b.appendChild(tag); b.appendChild(label);
-      applyOptState(b, i, oi, item, state.mcqSel[i]);
+      applyOptState(b, oi, item, state.mcqSel[i]);
       b.addEventListener("click", function(){
         state.mcqSel[i] = oi;
         Array.prototype.forEach.call(opts.children, function(child, ci){
-          applyOptState(child, i, ci, item, oi);
+          applyOptState(child, ci, item, oi);
         });
         updateScore();
       });
@@ -473,17 +462,17 @@
     });
     card.appendChild(opts);
 
-    card.appendChild(buildTools(i, item, state.mcqHint, state.mcqAns));
+    card.appendChild(buildSwitches(i, item, state.mcqHint, state.mcqAns));
     return card;
   }
 
-  function applyOptState(btn, qi, oi, item, selected){
+  function applyOptState(btn, oi, item, selected){
     btn.classList.remove("is-selected","is-correct","is-wrong");
     if(selected === null || selected === undefined) return;
     if(oi === selected){
       btn.classList.add("is-selected");
       btn.classList.add(oi === item.correct ? "is-correct" : "is-wrong");
-    } else if(oi === item.correct && selected !== item.correct){
+    } else if(oi === item.correct){
       btn.classList.add("is-correct");
     }
   }
@@ -491,6 +480,11 @@
   function buildTfCard(item, i){
     var card = document.createElement("article");
     card.className = "card";
+    card.style.transform = "rotate(" + (((i*29)%5)-2) + "deg)";
+
+    var pin = document.createElement("span");
+    pin.className = "card__pin";
+    card.appendChild(pin);
 
     var top = document.createElement("div");
     top.className = "card__top";
@@ -509,7 +503,7 @@
       var text = pair[0], val = pair[1];
       var b = document.createElement("button");
       b.type = "button";
-      b.className = "opt tf";
+      b.className = "optnote tf";
       b.textContent = text;
       applyTfState(b, item, val, state.tfSel[i]);
       b.addEventListener("click", function(){
@@ -523,7 +517,7 @@
     });
     card.appendChild(opts);
 
-    card.appendChild(buildTools(i, item, state.tfHint, state.tfAns));
+    card.appendChild(buildSwitches(i, item, state.tfHint, state.tfAns));
     return card;
   }
 
@@ -533,31 +527,39 @@
     if(ownVal === selected){
       btn.classList.add("is-selected");
       btn.classList.add(ownVal === item.correct ? "is-correct" : "is-wrong");
-    } else if(ownVal === item.correct && selected !== item.correct){
+    } else if(ownVal === item.correct){
       btn.classList.add("is-correct");
     }
   }
 
-  function buildTools(i, item, hintArr, ansArr){
+  function buildSwitches(i, item, hintArr, ansArr){
     var wrap = document.createElement("div");
 
-    var tools = document.createElement("div");
-    tools.className = "card__tools";
+    var row = document.createElement("div");
+    row.className = "card__switches";
 
-    var hintBtn = document.createElement("button");
-    hintBtn.type = "button";
-    hintBtn.className = "tool";
-    hintBtn.dataset.type = "hint";
-    hintBtn.textContent = "💡 Кеңес";
-
-    var ansBtn = document.createElement("button");
-    ansBtn.type = "button";
-    ansBtn.className = "tool";
-    ansBtn.dataset.type = "answer";
-    ansBtn.textContent = "🔑 Жауап";
-
-    tools.appendChild(hintBtn); tools.appendChild(ansBtn);
-    wrap.appendChild(tools);
+    function makeSwitch(kind, label, arr, box){
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "switch " + kind + (arr[i] ? " is-on" : "");
+      btn.setAttribute("aria-pressed", arr[i] ? "true" : "false");
+      var track = document.createElement("span");
+      track.className = "switch__track";
+      var thumb = document.createElement("span");
+      thumb.className = "switch__thumb";
+      track.appendChild(thumb);
+      var lab = document.createElement("span");
+      lab.className = "switch__label";
+      lab.textContent = label;
+      btn.appendChild(track); btn.appendChild(lab);
+      btn.addEventListener("click", function(){
+        arr[i] = !arr[i];
+        btn.classList.toggle("is-on", arr[i]);
+        btn.setAttribute("aria-pressed", arr[i] ? "true" : "false");
+        box.hidden = !arr[i];
+      });
+      return btn;
+    }
 
     var hintBox = document.createElement("div");
     hintBox.className = "card__reveal hint";
@@ -569,20 +571,10 @@
     ansBox.textContent = "✅ " + item.answer;
     ansBox.hidden = !ansArr[i];
 
-    hintBtn.classList.toggle("is-open", hintArr[i]);
-    ansBtn.classList.toggle("is-open", ansArr[i]);
+    row.appendChild(makeSwitch("hint", "Кеңес", hintArr, hintBox));
+    row.appendChild(makeSwitch("answer", "Жауап", ansArr, ansBox));
 
-    hintBtn.addEventListener("click", function(){
-      hintArr[i] = !hintArr[i];
-      hintBox.hidden = !hintArr[i];
-      hintBtn.classList.toggle("is-open", hintArr[i]);
-    });
-    ansBtn.addEventListener("click", function(){
-      ansArr[i] = !ansArr[i];
-      ansBox.hidden = !ansArr[i];
-      ansBtn.classList.toggle("is-open", ansArr[i]);
-    });
-
+    wrap.appendChild(row);
     wrap.appendChild(hintBox);
     wrap.appendChild(ansBox);
     return wrap;
@@ -607,35 +599,19 @@
 
     pagerEl.innerHTML = "";
     if(pageCount > 1){
-      var prev = document.createElement("button");
-      prev.type = "button";
-      prev.textContent = "← Алдыңғы";
-      prev.disabled = page === 0;
-      prev.addEventListener("click", function(){
-        if(isMcq){ state.mcqPage--; } else { state.tfPage--; }
-        renderPage(kind);
-      });
-
-      var dots = document.createElement("div");
-      dots.className = "pager__dots";
       for(var p = 0; p < pageCount; p++){
-        var d = document.createElement("span");
-        d.className = "pager__dot" + (p === page ? " active" : "");
-        dots.appendChild(d);
+        (function(p){
+          var f = document.createElement("button");
+          f.type = "button";
+          f.className = "flag" + (p === page ? " active" : "");
+          f.textContent = (p+1) + "-парақ";
+          f.addEventListener("click", function(){
+            if(isMcq){ state.mcqPage = p; } else { state.tfPage = p; }
+            renderPage(kind);
+          });
+          pagerEl.appendChild(f);
+        })(p);
       }
-
-      var next = document.createElement("button");
-      next.type = "button";
-      next.textContent = "Келесі →";
-      next.disabled = page === pageCount - 1;
-      next.addEventListener("click", function(){
-        if(isMcq){ state.mcqPage++; } else { state.tfPage++; }
-        renderPage(kind);
-      });
-
-      pagerEl.appendChild(prev);
-      pagerEl.appendChild(dots);
-      pagerEl.appendChild(next);
     }
   }
 
